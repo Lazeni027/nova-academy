@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NOVA Academy | Formation Bureautique Pro · Octobre 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a365d;
+            --navy-light: #2a5298;
+            --blue: #2563eb;
+            --blue-bg: #eff6ff;
+            --sal: #f4a261;
+            --sal-light: #fdf0e6;
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #6c757d;
+            --gray-700: #475569;
+            --gray-800: #212529;
+            --whatsapp: #25D366;
+            --red: #b91c1c;
+            --red-bg: #fef2f2;
+            --morning: #2563eb;
+            --morning-bg: #eff6ff;
+            --evening: #1e40af;
+            --evening-bg: #dbeafe;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
+            --shadow-lg: 0 24px 64px rgba(0,0,0,0.12);
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @keyframes signalPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); transform: scale(1.03); }
+        }
+        @keyframes signalPulseSal {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 0 10px rgba(244, 162, 97, 0); transform: scale(1.03); }
+        }
+        @keyframes signalPulseRed {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 0 8px rgba(185, 28, 28, 0); transform: scale(1.05); }
+        }
+
+        .signal-active-blue {
+            animation: signalPulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            border-radius: 6px;
+        }
+        .signal-active-sal {
+            animation: signalPulseSal 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            border-radius: 6px;
+        }
+        .signal-active-red {
+            animation: signalPulseRed 1.5s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: var(--navy);
+            color: rgba(255,255,255,0.85);
+            font-size: 0.75rem;
+            padding: 6px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .top-bar i { color: var(--sal); margin-right: 5px; font-size: 0.7rem; }
+
+        /* ===== NAVIGATION ===== */
+        .nav-academy {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 65px;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-crest {
+            width: 42px;
+            height: 42px;
+            background: var(--navy);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-crest img { width: 28px; height: 28px; filter: brightness(0) invert(1); }
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .logo-subtitle {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-500);
+        }
+
+        .nav-links { display: flex; list-style: none; height: 100%; }
+        .nav-links li { height: 100%; display: flex; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 0 14px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--navy); border-bottom-color: var(--sal); }
+        .btn-nav {
+            background: var(--navy);
+            color: var(--white) !important;
+            padding: 8px 20px !important;
+            border-radius: var(--border-radius);
+            font-weight: 600 !important;
+            height: auto !important;
+            margin-left: 10px;
+            font-size: 0.75rem !important;
+        }
+        .btn-nav:hover { background: var(--navy-light) !important; }
+
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 38px;
+            background: var(--navy);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            z-index: 101;
+            gap: 4px;
+        }
+        .burger-btn span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        .burger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .burger-btn.active span:nth-child(2) { opacity: 0; }
+        .burger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2a5298 50%, #1a365d 100%);
+            color: white;
+            padding: 50px 0 70px;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--sal);
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+        .hero-text h1 .highlight { color: var(--sal); }
+        .hero-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+        .hero-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--sal);
+            color: var(--navy);
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        .btn-primary:hover { background: #e89450; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        .btn-outline:hover { border-color: white; }
+        .hero-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--border-radius);
+            padding: 24px;
+        }
+        .hero-card .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-card .stat-row:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .hero-card .stat-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(244,162,97,0.2);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--sal);
+            flex-shrink: 0;
+        }
+        .urgent-badge {
+            background: var(--red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: var(--border-radius);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* ===== SOFTWARE STRIP ===== */
+        .software-strip {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 20px 0;
+        }
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+        .software-item { padding: 20px 14px; border-right: 1px solid var(--gray-200); }
+        .software-item:last-child { border-right: none; }
+        .software-item img { width: 48px; height: 48px; margin-bottom: 8px; object-fit: contain; }
+        .software-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+        .software-item p { font-size: 0.75rem; color: var(--gray-500); }
+
+        /* ===== ALERT ===== */
+        .alert-announcement {
+            background: var(--blue-bg);
+            border-left: 3px solid var(--blue);
+            padding: 16px 24px;
+            margin: 28px 0;
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 14px;
+        }
+        .alert-icon { font-size: 1.2rem; color: var(--blue); flex-shrink: 0; }
+        .alert-announcement h3 { font-size: 0.95rem; color: var(--navy); }
+        .alert-announcement p { font-size: 0.8rem; color: var(--gray-600); }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 32px 0 20px;
+            padding-bottom: 12px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--sal);
+        }
+
+        /* ===== INFO GRID ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 20px 14px;
+            text-align: center;
+            border-radius: var(--border-radius);
+        }
+        .info-card .card-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px auto;
+            font-size: 0.9rem;
+            color: var(--sal);
+        }
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+        .info-card p { font-size: 0.75rem; color: var(--gray-500); }
+        .prix-large { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
+
+        /* ===== GROUPES ===== */
+        .group-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .group-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            padding: 24px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .group-card.morning-group { border-top: 3px solid var(--blue); }
+        .group-card.evening-group { border-top: 3px solid var(--navy); }
+        .group-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px auto;
+            font-size: 1.2rem;
+        }
+        .group-card.morning-group .group-icon { background: var(--blue-bg); color: var(--blue); }
+        .group-card.evening-group .group-icon { background: var(--evening-bg); color: var(--navy); }
+        .group-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); }
+        .group-time { font-size: 1.1rem; font-weight: 800; }
+        .group-card p { font-size: 0.78rem; color: var(--gray-500); }
+
+        /* ===== ANNONCE DATE ===== */
+        .date-announcement {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 32px;
+            text-align: center;
+            color: white;
+            margin: 28px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .date-announcement::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(244,162,97,0.08);
+            border-radius: 50%;
+        }
+        .date-announcement::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: rgba(244,162,97,0.06);
+            border-radius: 50%;
+        }
+        .date-announcement .date-icon {
+            font-size: 2.5rem;
+            color: var(--sal);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .date-announcement h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .date-announcement .date-highlight {
+            color: var(--sal);
+        }
+        .date-announcement p {
+            font-size: 1rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .date-announcement .date-badge {
+            display: inline-block;
+            background: var(--sal);
+            color: var(--navy);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== MODULES ===== */
+        .module {
+            background: var(--white);
+            margin-bottom: 10px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        .module-header {
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.82rem;
+            background: var(--white);
+            user-select: none;
+            gap: 10px;
+        }
+        .module-header-left { display: flex; align-items: center; gap: 10px; flex: 1; }
+        .module-icon-img { width: 30px; height: 30px; border-radius: var(--border-radius); object-fit: contain; background: var(--gray-100); padding: 5px; }
+        .module-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .module.open .module-body { max-height: 1500px; }
+        .module-body-inner { padding: 18px; }
+        .module-description { font-size: 0.78rem; color: var(--gray-500); margin-bottom: 10px; }
+        .module-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .module-tag {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+        .module-close-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .module.open .module-close-btn {
+            background: var(--red);
+            color: white;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 24px 20px;
+            border-radius: var(--border-radius);
+        }
+        .contact-card h3 { font-size: 0.9rem; color: var(--navy); margin-bottom: 10px; }
+        .contact-card p { font-size: 0.78rem; color: var(--gray-600); }
+        .contact-card a { color: var(--gray-600); text-decoration: none; font-size: 0.78rem; }
+        .contact-card a:hover { color: var(--navy); }
+        .whatsapp-btn {
+            background: var(--whatsapp);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.75rem !important;
+            transition: var(--transition);
+        }
+
+        /* ===== FOOTER SIMPLIFIÉ ===== */
+        .footer {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            padding: 20px 24px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .footer p, .footer a {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-decoration: none;
+        }
+        .footer a:hover { color: var(--gray-700); }
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== MOBILE ===== */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .mobile-overlay.active { opacity: 1; pointer-events: auto; }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 16px; }
+            .burger-btn { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 80px 20px 25px;
+                box-shadow: var(--shadow-lg);
+                transition: right 0.4s ease;
+                z-index: 100;
+                overflow-y: auto;
+                gap: 4px;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { height: auto; width: 100%; }
+            .nav-links a { padding: 10px 0; height: auto; width: 100%; }
+            .mobile-overlay { display: block; }
+            .hero-content { grid-template-columns: 1fr; gap: 20px; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .hero-card { padding: 18px; }
+            .software-grid { grid-template-columns: 1fr; }
+            .software-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .group-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .date-announcement h2 { font-size: 1.5rem; }
+            .footer { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 540px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+            .section-title { font-size: 1.2rem; }
+            .date-announcement { padding: 28px 20px; }
+            .date-announcement h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="container">
+        <span><i class="fas fa-phone"></i> 0716851525</span>
+        <span><i class="fas fa-envelope"></i> novaacademy27@gmail.com</span>
+        <span><i class="fas fa-map-marker-alt"></i> Centre NOVA Academy, Kassirimé — Korhogo</span>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav-academy">
+    <div class="container nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-crest">
+                <img src="https://img.icons8.com/ios-filled/50/FFFFFF/graduation-cap.png" alt="NOVA Academy" loading="lazy">
+            </div>
+            <div>
+                <span class="logo-title">NOVA</span>
+                <span class="logo-subtitle">Academy</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#groupes">Groupes</a></li>
+            <li><a href="#calendrier">Calendrier</a></li>
+            <li><a href="#programme">Programme</a></li>
+            <li><a href="cours.html">Cours</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#inscription" class="btn-nav">S'inscrire</a></li>
+        </ul>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- HERO -->
+<header class="hero" id="heroSection">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(244,162,97,0.15);border:1px solid rgba(244,162,97,0.3);padding:4px 14px;border-radius:4px;font-size:0.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;color:#fdf0e6;"><i class="fas fa-star" style="color:var(--sal);"></i> Formation pratique · Nouvelle session</div>
+            <h1>Bureautique <span class="highlight">Professionnelle</span></h1>
+            <p class="hero-subtitle">Maîtrisez Microsoft Word, Excel et PowerPoint. Deux groupes distincts pour s'adapter à votre emploi du temps.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" id="heroBtn"><i class="fas fa-graduation-cap"></i> Réserver ma place</button>
+                <button class="btn-outline" onclick="document.getElementById('groupes').scrollIntoView({behavior:'smooth'})"><i class="fas fa-users"></i> Voir les groupes</button>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="stat-row"><span class="stat-icon"><i class="far fa-calendar-alt"></i></span> <strong>Début : 15 Octobre 2026</strong></div>
+            <div class="stat-row"><span class="stat-icon"><i class="fas fa-sun"></i></span> <strong>Groupe Matin</strong> 08h00 – 11h00</div>
+            <div class="stat-row"><span class="stat-icon"><i class="fas fa-moon"></i></span> <strong>Groupe Soir</strong> 14h30 – 17h00</div>
+            <div class="stat-row"><span class="stat-icon"><i class="fas fa-hourglass-half"></i></span> <strong>3 semaines</strong> de formation intensive</div>
+            <div class="stat-row"><span class="stat-icon"><i class="fas fa-map-marker-alt"></i></span> <strong>Korhogo, Kassirimé</strong></div>
+            <span class="urgent-badge"><i class="fas fa-exclamation-circle"></i> Inscriptions ouvertes</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- SOFTWARE STRIP -->
+    <div class="software-strip">
+        <div class="software-grid">
+            <div class="software-item">
+                <img src="https://img.icons8.com/color/96/000000/microsoft-word-2019.png" alt="Word" loading="lazy">
+                <h4>Microsoft Word</h4>
+                <p>Traitement de texte avancé</p>
+            </div>
+            <div class="software-item">
+                <img src="https://img.icons8.com/color/96/000000/microsoft-excel-2019.png" alt="Excel" loading="lazy">
+                <h4>Microsoft Excel</h4>
+                <p>Tableur & analyse de données</p>
+            </div>
+            <div class="software-item">
+                <img src="https://img.icons8.com/color/96/000000/microsoft-powerpoint-2019.png" alt="PowerPoint" loading="lazy">
+                <h4>Microsoft PowerPoint</h4>
+                <p>Présentations professionnelles</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALERTE -->
+    <div class="alert-announcement">
+        <div class="alert-icon"><i class="fas fa-bullhorn"></i></div>
+        <div>
+            <h3>Inscriptions ouvertes — NOVA ACADEMY</h3>
+            <p>Les inscriptions pour la nouvelle session du <strong>15 octobre 2026</strong> sont ouvertes. Les personnes intéressées sont invitées à <strong>passer au centre NOVA Academy à Kassirimé</strong> afin de finaliser leur inscription.</p>
+        </div>
+    </div>
+
+    <!-- INFOS CLÉS -->
+    <h2 class="section-title" id="tarifs">Informations clés</h2>
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="card-icon"><i class="far fa-calendar-alt"></i></div>
+            <h3>Début des cours</h3>
+            <p>15 Octobre 2026</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-tag"></i></div>
+            <h3>Frais de formation</h3>
+            <span class="prix-large">20 000 F</span>
+            <p>Paiement échelonné possible</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-hourglass-half"></i></div>
+            <h3>Durée</h3>
+            <p>3 semaines intensives</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-location-dot"></i></div>
+            <h3>Lieu</h3>
+            <p>Centre NOVA, Kassirimé</p>
+        </div>
+    </div>
+
+
+    <!-- PRESENTATION NOVA ACADEMY -->
+    <section id="apropos" class="nova-info-section" style="padding:42px 0 12px">
+      <h2 class="section-title">À propos de NOVA Academy</h2>
+      <p style="max-width:850px;margin:0 auto 24px;text-align:center;color:var(--gray-600)">NOVA Academy accompagne les apprenants dans l’acquisition de compétences numériques pratiques, de l’initiation à l’informatique à la bureautique professionnelle. Notre approche privilégie la pratique, les exercices et l’autonomie.</p>
+    </section>
+    <section id="services" class="nova-info-section" style="padding:12px 0 32px">
+      <h2 class="section-title">Nos services</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0 32px">
+        <article style="padding:22px;border:1px solid var(--gray-200);border-radius:8px"><h3>Initiation informatique</h3><p>Prise en main de l’ordinateur, fichiers, Windows et Internet.</p></article>
+        <article style="padding:22px;border:1px solid var(--gray-200);border-radius:8px"><h3>Bureautique</h3><p>Word, Excel et PowerPoint avec des exercices pratiques.</p></article>
+        <article style="padding:22px;border:1px solid var(--gray-200);border-radius:8px"><h3>Exercices et évaluations</h3><p>Supports pédagogiques pour réviser et progresser à son rythme.</p></article>
+        <article style="padding:22px;border:1px solid var(--gray-200);border-radius:8px"><h3>Accompagnement</h3><p>Une formation orientée vers les compétences utiles aux études et au travail.</p></article>
+      </div>
+      <p style="text-align:center"><a href="cours.html" class="btn-nav" style="display:inline-block;text-decoration:none;padding:12px 22px;border-radius:5px">Accéder à l’espace cours <i class="fas fa-arrow-right"></i></a></p>
+    </section>
+
+    <!-- GROUPES -->
+    <h2 class="section-title" id="groupes">Deux groupes distincts</h2>
+    <div class="group-grid" id="groupSection">
+        <div class="group-card morning-group" id="groupMatin">
+            <div class="group-icon"><i class="fas fa-sun"></i></div>
+            <h3>Groupe Matin</h3>
+            <p class="group-time">08h00 — 11h00</p>
+            <p><i class="fas fa-calendar-alt"></i> Du Lundi au Samedi</p>
+            <span style="display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.65rem;font-weight:700;background:var(--blue-bg);color:var(--blue);">Session complète</span>
+        </div>
+        <div class="group-card evening-group" id="groupSoir">
+            <div class="group-icon"><i class="fas fa-moon"></i></div>
+            <h3>Groupe Soir</h3>
+            <p class="group-time">14h30 — 17h00</p>
+            <p><i class="fas fa-calendar-alt"></i> Mardi · Vendredi · Samedi</p>
+            <span style="display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.65rem;font-weight:700;background:var(--evening-bg);color:var(--navy);">Session renforcée</span>
+        </div>
+    </div>
+
+    <!-- CALENDRIER / DATE UNIQUE -->
+    <h2 class="section-title" id="calendrier">Calendrier</h2>
+    <div class="date-announcement" id="calendarSection">
+        <div class="date-icon"><i class="fas fa-calendar-check"></i></div>
+        <h2>Début de la formation : <span class="date-highlight">15 Octobre 2026</span></h2>
+        <p>Une nouvelle session de formation en bureautique professionnelle débute le <strong>15 octobre 2026</strong>. Les inscriptions sont d'ores et déjà ouvertes.</p>
+        <div class="date-badge"><i class="fas fa-hourglass-start"></i> Inscriptions en cours</div>
+    </div>
+
+    <!-- PROGRAMME -->
+    <h2 class="section-title" id="programme">Programme académique</h2>
+    <div id="programmeSection">
+        <div class="module" id="moduleInitiation">
+            <div class="module-header">
+                <div class="module-header-left">
+                    <img src="https://img.icons8.com/color/48/000000/laptop.png" alt="Initiation" class="module-icon-img" loading="lazy">
+                    <div><strong>Séance inaugurale :</strong> Initiation à l'informatique</div>
+                </div>
+                <span class="module-close-btn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="module-body">
+                <div class="module-body-inner">
+                    <p class="module-description">Découverte de l'environnement informatique : matériel, Windows, fichiers et Internet.</p>
+                    <div class="module-tags">
+                        <span class="module-tag">Matériel</span>
+                        <span class="module-tag">Fichiers</span>
+                        <span class="module-tag">Internet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module" id="moduleWord">
+            <div class="module-header">
+                <div class="module-header-left">
+                    <img src="https://img.icons8.com/color/48/000000/microsoft-word-2019.png" alt="Word" class="module-icon-img" loading="lazy">
+                    <div><strong>Module I :</strong> Microsoft Word</div>
+                </div>
+                <span class="module-close-btn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="module-body">
+                <div class="module-body-inner">
+                    <p class="module-description">Traitement de texte professionnel : structuration, mise en forme, automatisation.</p>
+                    <div class="module-tags">
+                        <span class="module-tag">Styles</span>
+                        <span class="module-tag">Table des matières</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module" id="moduleExcel">
+            <div class="module-header">
+                <div class="module-header-left">
+                    <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019.png" alt="Excel" class="module-icon-img" loading="lazy">
+                    <div><strong>Module II :</strong> Microsoft Excel</div>
+                </div>
+                <span class="module-close-btn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="module-body">
+                <div class="module-body-inner">
+                    <p class="module-description">Analyse de données : formules, fonctions, graphiques.</p>
+                    <div class="module-tags">
+                        <span class="module-tag">Formules</span>
+                        <span class="module-tag">Graphiques</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module" id="modulePowerPoint">
+            <div class="module-header">
+                <div class="module-header-left">
+                    <img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png" alt="PowerPoint" class="module-icon-img" loading="lazy">
+                    <div><strong>Module III :</strong> Microsoft PowerPoint</div>
+                </div>
+                <span class="module-close-btn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="module-body">
+                <div class="module-body-inner">
+                    <p class="module-description">Présentations professionnelles : design, transitions, animations.</p>
+                    <div class="module-tags">
+                        <span class="module-tag">Design</span>
+                        <span class="module-tag">Animations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module" id="moduleFinal">
+            <div class="module-header">
+                <div class="module-header-left">
+                    <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Projet final" class="module-icon-img" loading="lazy">
+                    <div><strong>Projet Final :</strong> Synthèse et certification</div>
+                </div>
+                <span class="module-close-btn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="module-body">
+                <div class="module-body-inner">
+                    <p class="module-description">Projet complet intégrant Word, Excel et PowerPoint.</p>
+                    <div class="module-tags">
+                        <span class="module-tag">Word</span>
+                        <span class="module-tag">Excel</span>
+                        <span class="module-tag">PowerPoint</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <h2 class="section-title" id="contact">Inscription & Contact</h2>
+    <div class="contact-grid" id="inscription">
+        <div class="contact-card" id="contactInscription">
+            <h3>Finalisez votre inscription</h3>
+            <p style="margin-bottom:8px;"><strong>Passez au centre NOVA Academy à Kassirimé</strong></p>
+            <p style="margin-bottom:12px;">Ou consultez le lien ci-dessous :</p>
+            <p style="margin-bottom:14px;"><a href="https://forms.office.com/r/E3GmUc2gsi" target="_blank">https://forms.office.com/r/E3GmUc2gsi</a></p>
+            <button class="btn-primary" id="inscriptionBtn">S'inscrire maintenant</button>
+        </div>
+        <div class="contact-card" id="contactWhatsApp">
+            <h3>Contacts & Lieu</h3>
+            <p style="margin-bottom:8px;">Centre NOVA Academy, Kassirimé (Korhogo)</p>
+            <p style="margin-bottom:8px;">0716851525</p>
+            <a href="https://wa.me/qr/P3GB6WP45P6PK1" target="_blank" class="whatsapp-btn" id="whatsappBtn">Écrire sur WhatsApp</a>
+            <p style="margin-top:10px;">novaacademy27@gmail.com</p>
+        </div>
+    </div>
+
+    <div style="background:var(--navy);padding:14px 20px;text-align:center;color:white;font-weight:500;border-radius:4px;font-size:0.8rem;">
+        <strong>Places limitées</strong> — Pensez à finaliser votre inscription rapidement. Début des cours : <strong>15 octobre 2026</strong>.
+    </div>
+</main>
+
+<!-- FOOTER SIMPLIFIÉ -->
+<footer class="footer">
+    <p>NOVA Academy — Formation bureautique professionnelle</p>
+    <div class="footer-links">
+        <a href="#apropos">À propos</a>
+        <a href="#services">Services</a>
+        <a href="#groupes">Groupes</a>
+        <a href="#calendrier">Calendrier</a>
+        <a href="#programme">Programme</a>
+        <a href="cours.html">Cours</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <p>0716851525 · novaacademy27@gmail.com</p>
+</footer>
+
+<script>
+    (function() {
+        // ============ MENU BURGER ============
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        burgerBtn.addEventListener('click', () => {
+            burgerBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+        });
+        mobileOverlay.addEventListener('click', () => {
+            burgerBtn.classList.remove('active');
+            navLinks.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+            });
+        });
+
+        // ============ SYSTÈME DE GUIDAGE CONTEXTUEL ============
+        const signalClasses = {
+            blue: 'signal-active-blue',
+            sal: 'signal-active-sal',
+            red: 'signal-active-red'
+        };
+        
+        let currentSignaledElement = null;
+        
+        function clearAllSignals() {
+            document.querySelectorAll('.signal-active-blue, .signal-active-sal, .signal-active-red').forEach(el => {
+                el.classList.remove('signal-active-blue', 'signal-active-sal', 'signal-active-red');
+            });
+            currentSignaledElement = null;
+        }
+        
+        function signalElement(element, signalType) {
+            if (!element) return;
+            if (currentSignaledElement === element) return;
+            clearAllSignals();
+            element.classList.add(signalType);
+            currentSignaledElement = element;
+        }
+        
+        function determineContextualSignal() {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const scrollPosition = scrollY + viewportHeight / 2;
+            
+            if (scrollPosition < 600) {
+                signalElement(document.getElementById('heroBtn'), signalClasses.sal);
+                return;
+            }
+            
+            const groupSection = document.getElementById('groupSection');
+            if (groupSection) {
+                const groupRect = groupSection.getBoundingClientRect();
+                if (groupRect.top < viewportHeight * 0.7 && groupRect.bottom > 0) {
+                    signalElement(document.getElementById('groupMatin'), signalClasses.blue);
+                    return;
+                }
+            }
+            
+            const calendarSection = document.getElementById('calendarSection');
+            if (calendarSection) {
+                const calRect = calendarSection.getBoundingClientRect();
+                if (calRect.top < viewportHeight * 0.7 && calRect.bottom > 0) {
+                    signalElement(calendarSection.querySelector('.date-badge'), signalClasses.blue);
+                    return;
+                }
+            }
+            
+            const programmeSection = document.getElementById('programmeSection');
+            if (programmeSection) {
+                const progRect = programmeSection.getBoundingClientRect();
+                if (progRect.top < viewportHeight * 0.7 && progRect.bottom > 0) {
+                    const openModule = document.querySelector('.module.open');
+                    if (openModule) {
+                        const closeBtn = openModule.querySelector('.module-close-btn');
+                        signalElement(closeBtn, signalClasses.red);
+                    } else {
+                        const firstClosedModule = document.querySelector('.module:not(.open)');
+                        if (firstClosedModule) {
+                            signalElement(firstClosedModule.querySelector('.module-header'), signalClasses.blue);
+                        }
+                    }
+                    return;
+                }
+            }
+            
+            const contactSection = document.getElementById('inscription');
+            if (contactSection) {
+                const contactRect = contactSection.getBoundingClientRect();
+                if (contactRect.top < viewportHeight * 0.7 && contactRect.bottom > 0) {
+                    signalElement(document.getElementById('inscriptionBtn'), signalClasses.sal);
+                    return;
+                }
+            }
+            
+            clearAllSignals();
+        }
+        
+        function autoToggleAccordions() {
+            const modules = document.querySelectorAll('.module');
+            const viewportHeight = window.innerHeight;
+            
+            modules.forEach(mod => {
+                const rect = mod.getBoundingClientRect();
+                const centerY = rect.top + rect.height / 2;
+                const isInReadingZone = centerY > viewportHeight * 0.3 && centerY < viewportHeight * 0.7;
+                
+                if (isInReadingZone && !mod.classList.contains('open')) {
+                    mod.classList.add('open');
+                } else if (rect.top > viewportHeight || rect.bottom < 0) {
+                    if (mod.classList.contains('open')) {
+                        mod.classList.remove('open');
+                    }
+                }
+            });
+        }
+        
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            determineContextualSignal();
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                autoToggleAccordions();
+            }, 200);
+        }, { passive: true });
+        
+        document.querySelectorAll('.module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const module = header.closest('.module');
+                module.classList.toggle('open');
+                setTimeout(determineContextualSignal, 100);
+            });
+        });
+        
+        const link = "https://forms.office.com/r/E3GmUc2gsi";
+        document.querySelectorAll('#heroBtn, #inscriptionBtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(link, '_blank');
+            });
+        });
+        
+        window.addEventListener('load', () => {
+            setTimeout(determineContextualSignal, 500);
+            setInterval(determineContextualSignal, 3000);
+            autoToggleAccordions();
+        });
+    })();
+</script>
+</body>
+</html>
